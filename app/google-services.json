@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "195082647725",
+    "firebase_url": "https://e-commercedemo-19221.firebaseio.com",
+    "project_id": "e-commercedemo-19221",
+    "storage_bucket": "e-commercedemo-19221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195082647725:android:f15c4d3ccbbd76c1fe6e24",
+        "android_client_info": {
+          "package_name": "com.iknoortech.e_commercedemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195082647725-4airv1hakm42dthqf9p3jefvk9m0ff31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iknoortech.e_commercedemo",
+            "certificate_hash": "e97f9cebdcbd331d2b67f72829653fb1bd04f047"
+          }
+        },
+        {
+          "client_id": "195082647725-rh052foaavk37afjute6eb6vnvsgfdnc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iknoortech.e_commercedemo",
+            "certificate_hash": "7320bcff652b7214b1d0b569fb1905146b8feda2"
+          }
+        },
+        {
+          "client_id": "195082647725-hs0tgceg6dss5tou0si1claroprkc7q7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC4U8qxnH7yPswcRXlDv7l_WS8WVEYxHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195082647725-hs0tgceg6dss5tou0si1claroprkc7q7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195082647725:android:97abd227d5e47de4fe6e24",
+        "android_client_info": {
+          "package_name": "com.iknoortech.lopoadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195082647725-eff11p3dvs4g2i65dqjbmuloii94blp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iknoortech.lopoadmin",
+            "certificate_hash": "e97f9cebdcbd331d2b67f72829653fb1bd04f047"
+          }
+        },
+        {
+          "client_id": "195082647725-hs0tgceg6dss5tou0si1claroprkc7q7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC4U8qxnH7yPswcRXlDv7l_WS8WVEYxHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195082647725-hs0tgceg6dss5tou0si1claroprkc7q7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
