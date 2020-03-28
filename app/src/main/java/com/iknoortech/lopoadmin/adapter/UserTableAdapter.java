@@ -1,6 +1,7 @@
 package com.iknoortech.lopoadmin.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iknoortech.lopoadmin.R;
+import com.iknoortech.lopoadmin.activity.UserProfileActivity;
 import com.iknoortech.lopoadmin.model.user.UserTable;
 
 import java.util.ArrayList;
@@ -34,16 +36,25 @@ public class UserTableAdapter extends RecyclerView.Adapter<UserTableAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.tvName.setText("Name: " + arrayList.get(position).getName());
         holder.tvEmail.setText("Email: " + arrayList.get(position).getEmail());
         holder.tvMobile.setText("Mobile: " + arrayList.get(position).getPhone());
-        holder.tvLogin.setText("Login Status: "+arrayList.get(position).getIsLogin());
+        holder.tvLogin.setText("Login Status: " + arrayList.get(position).getIsLogin());
 
         if (!arrayList.get(position).getImage().isEmpty()) {
             Glide.with(context).load(arrayList.get(position).getImage()).into(holder.imgUser);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserProfileActivity.class);
+                intent.putExtra("userDetails", arrayList.get(position));
+                context.startActivity(intent);
+            }
+        });
 
     }
 

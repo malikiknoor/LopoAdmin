@@ -52,7 +52,7 @@ public class AppUtil {
         }
     }
 
-    public static String setDateFormat(long milliSeconds) {
+    public static String setDate(long milliSeconds) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aaa");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);

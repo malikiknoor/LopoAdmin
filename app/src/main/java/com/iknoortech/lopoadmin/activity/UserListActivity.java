@@ -45,14 +45,6 @@ public class UserListActivity extends AppCompatActivity {
 
         rvUser = findViewById(R.id.recyclerView1);
         rvUser.setLayoutManager(new LinearLayoutManager(this));
-
-        if (AppUtil.isInternetAvailable(this)) {
-            userTable = new ArrayList<>();
-            setAdapter();
-            getUserId();
-        } else {
-            Toast.makeText(this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void getUserId() {
@@ -102,5 +94,17 @@ public class UserListActivity extends AppCompatActivity {
     private void setAdapter() {
         adapter = new UserTableAdapter(userTable, this);
         rvUser.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        if (AppUtil.isInternetAvailable(this)) {
+            userTable = new ArrayList<>();
+            setAdapter();
+            getUserId();
+        } else {
+            Toast.makeText(this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
+        }
+        super.onResume();
     }
 }

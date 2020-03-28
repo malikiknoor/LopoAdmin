@@ -29,6 +29,7 @@
             android:layout_marginRight="16dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
+            android:visibility="gone"
             android:onClick="goToNewTable"
             android:src="@drawable/ic_add_white_24dp" />
 

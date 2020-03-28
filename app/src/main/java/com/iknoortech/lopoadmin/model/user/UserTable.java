@@ -1,6 +1,8 @@
 package com.iknoortech.lopoadmin.model.user;
 
-public class UserTable {
+import java.io.Serializable;
+
+public class UserTable implements Serializable {
 
     private String userId;
     private String name;
