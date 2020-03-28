@@ -4,6 +4,7 @@ public class AppConstant {
 
     //user side table name
     public static final String USER_TABLE = "user";
+    public static final String CATEGORY_TABLE = "category";
 
     //admin details
     public static final String ADMINTABLE = "admin";

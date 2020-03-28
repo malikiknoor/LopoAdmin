@@ -1,6 +1,10 @@
 package com.iknoortech.lopoadmin.model.main;
 
-public class MainTableList {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class MainTableList implements Serializable {
 
     private String title;
 

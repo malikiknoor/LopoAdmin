@@ -7,29 +7,42 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:background="@color/colorPrimaryDark">
 
         <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="6dp"
             android:background="@drawable/ic_lopo_logo_main" />
 
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:onClick="goToNewTable"
+            android:src="@drawable/ic_add_white_24dp" />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/imageView2"
             android:text="Lopo Shop Admin Panel"
             android:textColor="@android:color/white"
             android:textSize="16dp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -37,7 +50,7 @@
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:paddingLeft="16dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"/>
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
 
 </LinearLayout>

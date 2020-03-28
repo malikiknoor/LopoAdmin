@@ -10,11 +10,13 @@ public class UserTable {
     private String phone;
     private String token;
     private long registrationDate;
+    private String isLogin;
 
     public UserTable() {
     }
 
-    public UserTable(String userId, String name, String image, String password, String email, String phone, String token, long registrationDate) {
+    public UserTable(String userId, String name, String image, String password, String email,
+                     String phone, String token, long registrationDate, String isLogin) {
         this.userId = userId;
         this.name = name;
         this.image = image;
@@ -23,6 +25,7 @@ public class UserTable {
         this.phone = phone;
         this.token = token;
         this.registrationDate = registrationDate;
+        this.isLogin = isLogin;
     }
 
     public String getUserId() {
@@ -87,5 +90,13 @@ public class UserTable {
 
     public void setRegistrationDate(long registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public String getIsLogin() {
+        return isLogin;
+    }
+
+    public void setIsLogin(String isLogin) {
+        this.isLogin = isLogin;
     }
 }
