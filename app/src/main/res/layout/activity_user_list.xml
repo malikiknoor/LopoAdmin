@@ -16,30 +16,19 @@
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:src="@drawable/ic_arrow_back_white_24dp" />
+            style="@style/toolbarBackButtonStyle" />
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
             android:onClick="goToAddNewUser"
-            android:src="@drawable/ic_add_white_24dp" />
+            style="@style/toolbarAddButtonStyle"/>
 
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_toRightOf="@id/imageView6"
             android:text="Users"
             style="@style/toolbarTextStyle"/>

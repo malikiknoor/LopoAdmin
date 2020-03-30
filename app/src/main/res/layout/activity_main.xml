@@ -20,23 +20,9 @@
             android:layout_marginLeft="16dp"
             android:background="@drawable/ic_lopo_logo_main" />
 
-        <ImageView
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:visibility="gone"
-            android:onClick="goToNewTable"
-            android:src="@drawable/ic_add_white_24dp" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_toRightOf="@id/imageView2"
             android:text="Lopo Shop Admin Panel"
             style="@style/toolbarTextStyle"/>
@@ -48,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
-        android:paddingLeft="16dp"
+        android:paddingLeft="8dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp" />
 

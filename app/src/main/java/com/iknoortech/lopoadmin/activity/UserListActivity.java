@@ -40,6 +40,7 @@ public class UserListActivity extends AppCompatActivity {
     private RecyclerView rvUser;
     private UserTableAdapter adapter;
     private ImageView backImage, imgAdd;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class UserListActivity extends AppCompatActivity {
     }
 
     private void getUserId() {
+        count = 0;
         AppUtil.showProgressDialog(this);
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(AppConstant.USER_TABLE)
@@ -74,11 +76,10 @@ public class UserListActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        closeProgressDialog();
                         if (task.isSuccessful()) {
                             if (task.getResult().size() > 0) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    getUserDetail(document.getId());
+                                    getUserDetail(document.getId(), task.getResult().size());
                                 }
                             } else {
                                 Toast.makeText(UserListActivity.this, "No data Found", Toast.LENGTH_SHORT).show();
@@ -90,7 +91,8 @@ public class UserListActivity extends AppCompatActivity {
                 });
     }
 
-    private void getUserDetail(String id) {
+    private void getUserDetail(String id, final int size) {
+        count++;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection(AppConstant.USER_TABLE)
                 .document(id);
@@ -98,14 +100,25 @@ public class UserListActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
+                    if (count == size) {
+                        AppUtil.closeProgressDialog();
+                    }
                     DocumentSnapshot document = task.getResult();
                     UserTable userData = document.toObject(UserTable.class);
                     userTable.add(userData);
                     adapter.notifyDataSetChanged();
                 } else {
+                    closeProgressDialog();
                     Toast.makeText(UserListActivity.this, ""
                             + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                closeProgressDialog();
+                Toast.makeText(UserListActivity.this, ""+
+                        e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

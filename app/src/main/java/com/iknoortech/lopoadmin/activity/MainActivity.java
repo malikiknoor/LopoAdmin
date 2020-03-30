@@ -51,10 +51,4 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(new MainListAdapter(this, tableList, listner));
     }
 
-    public void goToNewTable(View view) {
-        Intent intent = new Intent(MainActivity.this, CreateNewTableActivity.class);
-        intent.putExtra("tableName", tableList);
-        startActivity(intent);
-    }
-
 }

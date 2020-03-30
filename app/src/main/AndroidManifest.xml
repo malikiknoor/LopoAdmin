@@ -10,14 +10,12 @@
         android:roundIcon="@drawable/ic_lopo_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CreateNewUserActivity"></activity>
+        <activity android:name=".activity.AddNewCategoryActivity"></activity>
+        <activity android:name=".activity.CreateNewUserActivity" />
         <activity android:name=".activity.CategoryListActivity" />
         <activity android:name=".activity.ImageViewActivity" />
         <activity
             android:name=".activity.UserProfileActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.CreateNewTableActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.UserListActivity"
@@ -35,9 +33,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
