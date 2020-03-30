@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.iknoortech.lopoadmin.R;
 import com.iknoortech.lopoadmin.activity.UserProfileActivity;
 import com.iknoortech.lopoadmin.model.user.UserTable;
+import com.iknoortech.lopoadmin.util.AppUtil;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class UserTableAdapter extends RecyclerView.Adapter<UserTableAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
         holder.tvName.setText("Name: " + arrayList.get(position).getName());
         holder.tvEmail.setText("Email: " + arrayList.get(position).getEmail());
@@ -53,6 +54,15 @@ public class UserTableAdapter extends RecyclerView.Adapter<UserTableAdapter.View
                 Intent intent = new Intent(context, UserProfileActivity.class);
                 intent.putExtra("userDetails", arrayList.get(position));
                 context.startActivity(intent);
+            }
+        });
+
+        holder.imgUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!arrayList.get(position).getImage().isEmpty()) {
+                    AppUtil.seeFullImage(context, arrayList.get(position).getImage(), holder.imgUser);
+                }
             }
         });
 

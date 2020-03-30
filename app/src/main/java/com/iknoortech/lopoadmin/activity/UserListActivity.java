@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,14 +39,31 @@ public class UserListActivity extends AppCompatActivity {
     private ArrayList<UserTable> userTable;
     private RecyclerView rvUser;
     private UserTableAdapter adapter;
+    private ImageView backImage, imgAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
 
+        backImage = findViewById(R.id.imageView6);
+        imgAdd = findViewById(R.id.imageView7);
         rvUser = findViewById(R.id.recyclerView1);
         rvUser.setLayoutManager(new LinearLayoutManager(this));
+
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        imgAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserListActivity.this, CreateNewUserActivity.class));
+            }
+        });
     }
 
     private void getUserId() {
@@ -107,4 +126,10 @@ public class UserListActivity extends AppCompatActivity {
         }
         super.onResume();
     }
+
+    public void goToAddNewUser(View view) {
+
+    }
+
+
 }

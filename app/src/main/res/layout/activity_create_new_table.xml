@@ -65,17 +65,17 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
-            android:background="@drawable/ic_lopo_logo_main" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:src="@drawable/ic_arrow_back_white_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/imageView3"
             android:text="Create New Table"
-            android:textColor="@android:color/white"
-            android:textSize="16dp" />
+            style="@style/toolbarTextStyle"/>
 
     </RelativeLayout>
 

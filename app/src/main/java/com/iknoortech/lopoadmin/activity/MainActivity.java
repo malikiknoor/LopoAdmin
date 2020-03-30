@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, UserListActivity.class));
                     break;
                 case AppConstant.CATEGORY_TABLE:
+                    startActivity(new Intent(MainActivity.this, CategoryListActivity.class));
                     break;
             }
 
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         tableList = new ArrayList<>();
         tableList.add(new MainTableList(AppConstant.USER_TABLE, R.drawable.ic_person_24dp));
+        tableList.add(new MainTableList(AppConstant.CATEGORY_TABLE, R.drawable.ic_category));
         recyclerView.setAdapter(new MainListAdapter(this, tableList, listner));
     }
 

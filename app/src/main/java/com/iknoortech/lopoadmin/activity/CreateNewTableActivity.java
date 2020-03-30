@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.iknoortech.lopoadmin.R;
@@ -22,6 +23,7 @@ public class CreateNewTableActivity extends AppCompatActivity {
     private EditText edtTableName;
     private RecyclerView rvTable;
     private NewTable createTable;
+    private ImageView backImage;
     private ArrayList<NewTable> tableArrayList;
     private ArrayList<MainTableList> tableNameList;
     private NewTableItemsAdapter adapter;
@@ -34,6 +36,7 @@ public class CreateNewTableActivity extends AppCompatActivity {
 
         edtTableName = findViewById(R.id.editText2);
         rvTable = findViewById(R.id.recyclerView2);
+        backImage = findViewById(R.id.imageView3);
         rvTable.setLayoutManager(new LinearLayoutManager(this));
         tableArrayList = new ArrayList<>();
         createTable = new NewTable();
@@ -45,6 +48,13 @@ public class CreateNewTableActivity extends AppCompatActivity {
         tableNameList = (ArrayList<MainTableList>) getIntent().getSerializableExtra("tableName");
         Log.d(TAG, "onCreate: " + tableNameList);
 
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     public void createNewTable(View view) {
@@ -55,7 +65,7 @@ public class CreateNewTableActivity extends AppCompatActivity {
                     break;
                 }
 
-                if(i == (tableNameList.size() -1)){
+                if (i == (tableNameList.size() - 1)) {
                     enterDataInTable();
                 }
             }
