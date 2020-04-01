@@ -10,7 +10,8 @@
         android:roundIcon="@drawable/ic_lopo_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ProductListActivity"></activity>
+        <activity android:name=".activity.product.AddNewMobileActvity"></activity>
+        <activity android:name=".activity.ProductListActivity" />
         <activity android:name=".activity.AddNewCategoryActivity" />
         <activity android:name=".activity.CreateNewUserActivity" />
         <activity android:name=".activity.CategoryListActivity" />
@@ -34,9 +35,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
