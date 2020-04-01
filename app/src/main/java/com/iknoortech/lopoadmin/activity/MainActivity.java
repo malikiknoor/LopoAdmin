@@ -17,6 +17,10 @@ import com.iknoortech.lopoadmin.util.AppConstant;
 
 import java.util.ArrayList;
 
+import static com.iknoortech.lopoadmin.util.AppConstant.CATEGORY_TABLE;
+import static com.iknoortech.lopoadmin.util.AppConstant.PRODUCT_TABLE;
+import static com.iknoortech.lopoadmin.util.AppConstant.USER_TABLE;
+
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<MainTableList> tableList;
@@ -26,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(String name) {
             switch (name) {
-                case AppConstant.USER_TABLE:
+                case USER_TABLE:
                     startActivity(new Intent(MainActivity.this, UserListActivity.class));
                     break;
-                case AppConstant.CATEGORY_TABLE:
+                case CATEGORY_TABLE:
                     startActivity(new Intent(MainActivity.this, CategoryListActivity.class));
+                    break;
+                case PRODUCT_TABLE:
+                    startActivity(new Intent(MainActivity.this, ProductListActivity.class));
                     break;
             }
 
@@ -46,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         tableList = new ArrayList<>();
-        tableList.add(new MainTableList(AppConstant.USER_TABLE, R.drawable.ic_person_24dp));
-        tableList.add(new MainTableList(AppConstant.CATEGORY_TABLE, R.drawable.ic_category));
+        tableList.add(new MainTableList(USER_TABLE, R.drawable.ic_person_24dp));
+        tableList.add(new MainTableList(CATEGORY_TABLE, R.drawable.ic_category));
+        tableList.add(new MainTableList(PRODUCT_TABLE, R.drawable.ic_product));
         recyclerView.setAdapter(new MainListAdapter(this, tableList, listner));
     }
 

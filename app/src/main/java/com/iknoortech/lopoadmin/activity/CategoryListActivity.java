@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -48,14 +49,21 @@ public class CategoryListActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        categoryTable = new ArrayList<>();
 
         imgAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(AppUtil.isInternetAvailable(CategoryListActivity.this)){
-
-                }else{
+                if (AppUtil.isInternetAvailable(CategoryListActivity.this)) {
+                    Intent intent = new Intent(CategoryListActivity.this, AddNewCategoryActivity.class);
+                    if (categoryTable.size() == 0) {
+                        intent.putExtra("categoryId", "1");
+                    } else {
+                        intent.putExtra("categoryId", String.valueOf(categoryTable.size() + 1));
+                    }
+                    intent.putExtra("type", "new");
+                    startActivity(intent);
+                } else {
                     Toast.makeText(CategoryListActivity.this, "Please check your internet connection", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -84,9 +92,14 @@ public class CategoryListActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful() && task.getResult().size() > 0) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                getCategoryDetails(document.getId(), task.getResult().size());
+                        if (task.isSuccessful()) {
+                            if (task.getResult().size() > 0) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    getCategoryDetails(document.getId(), task.getResult().size());
+                                }
+                            } else {
+                                AppUtil.closeProgressDialog();
+                                Toast.makeText(CategoryListActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(CategoryListActivity.this, "" +
@@ -120,6 +133,7 @@ public class CategoryListActivity extends AppCompatActivity {
                             CategoryTable table = snapshot.toObject(CategoryTable.class);
                             categoryTable.add(table);
                             adapter.notifyDataSetChanged();
+
                         } else {
                             AppUtil.closeProgressDialog();
                             Toast.makeText(CategoryListActivity.this, "" +

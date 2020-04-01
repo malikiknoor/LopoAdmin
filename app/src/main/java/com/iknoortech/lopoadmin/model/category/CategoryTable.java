@@ -1,6 +1,8 @@
 package com.iknoortech.lopoadmin.model.category;
 
-public class CategoryTable {
+import java.io.Serializable;
+
+public class CategoryTable implements Serializable {
 
     private String categoryId;
 
@@ -8,13 +10,16 @@ public class CategoryTable {
 
     private String name;
 
+    private String status;
+
     public CategoryTable() {
     }
 
-    public CategoryTable(String categoryId, String image, String name) {
+    public CategoryTable(String categoryId, String image, String name, String status) {
         this.categoryId = categoryId;
         this.image = image;
         this.name = name;
+        this.status = status;
     }
 
     public String getCategoryId() {
@@ -39,5 +44,13 @@ public class CategoryTable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
